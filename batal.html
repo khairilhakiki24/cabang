@@ -3,10 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Akses Dibatalkan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #logContainer {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+            white-space: pre-wrap; /* Memungkinkan teks untuk membungkus */
+        }
+    </style>
 </head>
 <body>
     <h1>Akses Dibatalkan</h1>
     <p>Anda telah dibatalkan aksesnya karena mencoba untuk membuka aplikasi atau tab lain selama ujian. Harap tetap fokus pada halaman ini untuk menjaga integritas ujian.</p>
     <p>Silakan kembali dan coba lagi jika Anda siap untuk melanjutkan.</p>
+
+    <h2>Log Aktivitas Pengguna</h2>
+    <div id="logContainer"></div>
+
+    <script>
+        // Fungsi untuk menampilkan log dari localStorage
+        function displayLogs() {
+            const logs = localStorage.getItem('userLogs') || 'Tidak ada log.';
+            document.getElementById('logContainer').innerText = logs;
+        }
+
+        // Panggil fungsi untuk menampilkan log saat halaman dimuat
+        window.onload = displayLogs;
+    </script>
 </body>
 </html>
